@@ -74,7 +74,8 @@ command CopyPath let @* = expand("%")
 call plug#begin('~/.vim/plugged')
   Plug 'morhetz/gruvbox'
 
-  Plug 'preservim/nerdtree'
+  Plug 'nvim-tree/nvim-web-devicons'
+  Plug 'nvim-tree/nvim-tree.lua'
   Plug 'google/vim-searchindex'
 
   Plug 'tpope/vim-fugitive'
@@ -100,13 +101,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'godlygeek/tabular'
 
   "" Syntax highlight
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-treesitter/nvim-treesitter', {'branch': 'main', 'do': ':TSUpdate'}
 
   " neovim
   Plug 'JoosepAlviste/nvim-ts-context-commentstring'
   Plug 'numToStr/Comment.nvim'
   Plug 'danymat/neogen'
-  Plug 'davidmh/mdx.nvim'
 call plug#end()
 
 set background=dark
@@ -137,13 +137,6 @@ let g:prettier#config#trailing_comma = 'es5'
 
 " GitGutter
 let g:gitgutter_map_keys = 0
-
-" NerdTree
-let NERDTreeShowHidden=1
-nmap <Leader>n :NERDTree
-nmap <Leader>nf :NERDTreeFind<CR>
-nmap <Leader>nc :NERDTreeClose<CR>
-nmap <Leader>nv :NERDTreeVCS<CR>
 
 " Fugitive
 nmap <Leader>gb :Git blame<CR>
@@ -180,9 +173,4 @@ EOF
 " danymat/neogen
 lua << EOF
 require('neogen').setup {}
-EOF
-
-" davidmh/mdx.nvim
-lua << EOF
-require('mdx').setup {}
 EOF
