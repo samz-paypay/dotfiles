@@ -97,7 +97,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mattn/emmet-vim'
 
   " Formatter
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'typescriptreact', 'vue', 'css', 'json', 'markdown', 'html'] }
+  Plug 'stevearc/conform.nvim'
   Plug 'godlygeek/tabular'
 
   "" Syntax highlight
@@ -126,14 +126,6 @@ nnoremap <Leader>rg yiw:Rg! <C-R>"<CR>
 vnoremap <Leader>rg y:<c-u>Rg! '<C-R>"'<CR>
 nnoremap <Leader>rr yiw:Rg! <C-R>" <C-R>%
 vnoremap <Leader>rr y:<c-u>Rg! '<C-R>"' <C-R>%
-
-" Prettier
-let g:prettier#config#semi = 'false'
-let g:prettier#config#single_quote = 'true'
-let g:prettier#config#trailing_comma = 'es5'
-" let g:prettier#config#bracket_spacing = 'true'
-" nnoremap gp :silent %!prettier --no-config --stdin --stdin-filepath % --trailing-comma all --single-quote<CR>
-
 
 " GitGutter
 let g:gitgutter_map_keys = 0

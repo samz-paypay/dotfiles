@@ -8,8 +8,9 @@ vim.keymap.set('n', '<Leader>nf', ':NvimTreeFindFile<CR>')
 require('nvim-tree').setup {
   filters = {
     dotfiles = false,
+    git_ignored = false,
   },
   view = {
-    width = 55,
+    width = 50,
   },
 }
