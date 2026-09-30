@@ -18,10 +18,6 @@ conform.setup {
   },
 }
 
-vim.api.nvim_create_user_command('Prettier', function()
-  conform.format { lsp_format = 'never' }
-end, {})
-
 vim.keymap.set('n', '<Leader>p', function()
   conform.format { lsp_format = 'never' }
 end)
