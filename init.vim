@@ -28,6 +28,7 @@ set autoread
 
 " Giff target<-local copy->merge
 set diffopt+=vertical
+set diffopt+=inline:word
 
 noremap <Leader>w :write<CR>
 noremap <Leader>q <C-W><C-C>
@@ -72,7 +73,7 @@ command CopyPath let @* = expand("%")
 " ----------*---------- ----------*---------- ----------*---------- "
 
 call plug#begin('~/.vim/plugged')
-  Plug 'morhetz/gruvbox'
+  Plug 'folke/tokyonight.nvim'
 
   Plug 'nvim-tree/nvim-web-devicons'
   Plug 'nvim-tree/nvim-tree.lua'
@@ -80,6 +81,8 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'sindrets/diffview.nvim'
 
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
@@ -110,7 +113,7 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 set background=dark
-colorscheme gruvbox
+colorscheme tokyonight-night
 
 " fzf
 let g:fzf_preview_window = ''
