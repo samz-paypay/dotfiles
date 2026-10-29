@@ -5,6 +5,11 @@ end
 
 diffview.setup {
   enhanced_diff_hl = true,
+  file_panel = {
+    win_config = {
+      width = 50,
+    },
+  },
 }
 
 vim.keymap.set('n', '<Leader>gd', ':DiffviewOpen<CR>')
