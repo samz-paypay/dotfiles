@@ -151,25 +151,5 @@ command! -nargs=0 CocStop :call coc#rpc#stop()
 " Emmet  
 let g:user_emmet_leader_key = '<C-K>'
 
-
 " built in editorconfig
 let g:editorconfig = v:false
-
-" JoosepAlviste/nvim-ts-context-commentstring
-lua << EOF
-require('ts_context_commentstring').setup {
-  enable_autocmd = false,
-}
-EOF
-
-" numToStr/Comment.nvim
-lua << EOF
-require('Comment').setup {
-  pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
-}
-EOF
-
-" danymat/neogen
-lua << EOF
-require('neogen').setup {}
-EOF
