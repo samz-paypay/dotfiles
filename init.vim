@@ -117,18 +117,22 @@ colorscheme tokyonight-night
 
 " fzf
 let g:fzf_preview_window = ''
+
+" rg
 command! -bang -nargs=* Rg
       \ call fzf#vim#grep(
       \ 'rg --column --line-number --no-heading --color=always --smart-case ' . (<bang>0 ? '--fixed-strings ' : '') . <q-args>,
       \ 1, fzf#vim#with_preview('up:40%:hidden', '?'), 1)
+command! -bang -nargs=* RgSrc Rg<bang> -g '!*.{test,spec,stories}.*' <args>
+" search word under cursor in project
+nnoremap <Leader>rg :Rg! <C-R><C-W><CR>
+" search word under cursor in current file; no <CR> so the path can be edited first
+nnoremap <Leader>rr :Rg! <C-R><C-W> <C-R>%
+" search word under cursor in project, excluding test and storybook files
+nnoremap <Leader>rt :RgSrc! <C-R><C-W><CR>
 
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <C-P> :GFiles --recurse-submodules<CR>
-nnoremap <Leader>m :Commands<CR>
-nnoremap <Leader>rg yiw:Rg! <C-R>"<CR>
-vnoremap <Leader>rg y:<c-u>Rg! '<C-R>"'<CR>
-nnoremap <Leader>rr yiw:Rg! <C-R>" <C-R>%
-vnoremap <Leader>rr y:<c-u>Rg! '<C-R>"' <C-R>%
 
 " GitGutter
 let g:gitgutter_map_keys = 0
